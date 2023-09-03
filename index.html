@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed:ital@1&display=swap" rel="stylesheet">
+  
+  <title>SCEDULE PLANNING</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>TODAY'S PLAN</h1>
+    </header>
+    <main>
+      <div>
+        <input v-model="newTask" @keyup.enter="addTask" placeholder="Task OF THE DAY">
+        <button class="button button1" @click="addTask">add</button>
+      </div>
+      <ul class="task-list">
+        <li v-for="(task, index) in tasks" :key="index" :class="{ completed: task.completed }">
+          <span>{{ task.text }}</span>
+          <button @click="completeTask(index)">Complete</button>
+          <button @click="deleteTask(index)">Delete</button>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <p>&copy; Thanks for using my WebPage have a good day</p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
